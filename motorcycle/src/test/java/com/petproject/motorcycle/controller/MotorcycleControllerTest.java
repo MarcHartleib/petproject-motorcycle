@@ -22,7 +22,10 @@ class MotorcycleControllerTest {
     }
 
     @Test
-    void postMotorcycle() {
+    void postMotorcycle() throws Exception {
+        mockMvc.perform(MockMvcRequestBuilders.post("/motorcycle")
+                        .content(String.valueOf(MediaType.APPLICATION_JSON)))
+                .andExpect(MockMvcResultMatchers.status().isOk());
     }
 
     @Test
