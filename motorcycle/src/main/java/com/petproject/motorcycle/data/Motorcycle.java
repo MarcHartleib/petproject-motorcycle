@@ -1,14 +1,10 @@
 package com.petproject.motorcycle.data;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Builder
 @NoArgsConstructor
-@AllArgsConstructor
 @Getter
 @Entity
 @Table(name = "Motorcycles")
@@ -26,4 +22,29 @@ public class Motorcycle {
     private int horsepower;
     private String drive;
     private double fuelCapacity;
+    private boolean isUsed;
+
+    public Motorcycle(Manufacturer manufacturer,
+                      ModelType modelType,
+                      String name,
+                      int productionYear,
+                      String engine,
+                      int displacement,
+                      String cooling,
+                      int horsepower,
+                      String drive,
+                      double fuelCapacity,
+                      boolean isUsed) {
+        this.manufacturer = manufacturer;
+        this.modelType = modelType;
+        this.name = name;
+        this.productionYear = productionYear;
+        this.engine = engine;
+        this.displacement = displacement;
+        this.cooling = cooling;
+        this.horsepower = horsepower;
+        this.drive = drive;
+        this.fuelCapacity = fuelCapacity;
+        this.isUsed = isUsed;
+    }
 }
