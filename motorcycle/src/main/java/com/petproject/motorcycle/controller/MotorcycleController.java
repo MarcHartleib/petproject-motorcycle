@@ -1,17 +1,25 @@
 package com.petproject.motorcycle.controller;
 
+import com.petproject.motorcycle.data.Motorcycle;
+import com.petproject.motorcycle.service.MotorcycleService;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/motorcycle")
 public class MotorcycleController {
 
-    int testNumber = 1;
+    private final MotorcycleService motorcycleService;
+
+    public MotorcycleController(MotorcycleService motorcycleService) {
+        this.motorcycleService = motorcycleService;
+    }
 
 
     @GetMapping
-    public String getMotorcycle() {
-        return "Get";
+    public List<Motorcycle> getMotorcycles() {
+        return motorcycleService.getAllMotorcycles();
     }
 
     @PostMapping
@@ -21,7 +29,6 @@ public class MotorcycleController {
 
     @PutMapping("/{id}")
     public void putMotorcycle(@PathVariable("id") int id, @RequestBody int number) {
-        System.out.println(testNumber + number);
     }
 
     @DeleteMapping

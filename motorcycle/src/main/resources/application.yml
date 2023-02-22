@@ -1,7 +1,8 @@
 spring:
   datasource:
     username: sa
-    url: jdbc:h2:~/motorcycle-DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:~/motorcycle;DB_CLOSE_ON_EXIT=FALSE
+    name: motorcycle
   h2:
     console:
       enabled: true
