@@ -19,8 +19,8 @@ public class MotorcycleController {
         System.out.println(text);;
     }
 
-    @PutMapping
-    public void putMotorcycle(@RequestBody int number) {
+    @PutMapping("/{id}")
+    public void putMotorcycle(@PathVariable("id") int id, @RequestBody int number) {
         System.out.println(testNumber + number);
     }
 
