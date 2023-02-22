@@ -5,6 +5,7 @@ import com.petproject.motorcycle.service.MotorcycleService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/motorcycle")
@@ -23,16 +24,23 @@ public class MotorcycleController {
     }
 
     @PostMapping
-    public void postMotorcycle(@RequestBody String text) {
-        System.out.println(text);;
+    public void postMotorcycle(@RequestBody Motorcycle motorcycle) {
+        motorcycleService.save(motorcycle);
     }
 
-    @PutMapping("/{id}")
-    public void putMotorcycle(@PathVariable("id") int id, @RequestBody int number) {
+    @PutMapping()
+    public void putMotorcycle(@RequestBody Motorcycle motorcycle) {
+        motorcycleService.update(motorcycle);
     }
 
     @DeleteMapping
-    public String deleteMotorcycle() {
-        return "Delete";
+    public void deleteMotorcycle(@RequestBody Motorcycle motorcycle) {
+        motorcycleService.delete(motorcycle);
     }
+
+    @GetMapping("/{id}")
+    public Optional<Motorcycle> getMotorcycleById(@PathVariable("id") Long id) {
+        return motorcycleService.getMotorcycleById(id);
+    }
+
 }
