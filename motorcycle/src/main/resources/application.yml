@@ -1,0 +1,11 @@
+spring:
+  datasource:
+    username: sa
+    url: jdbc:h2:~/motorcycle-DB_CLOSE_ON_EXIT=FALSE
+  h2:
+    console:
+      enabled: true
+      path: /db
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
