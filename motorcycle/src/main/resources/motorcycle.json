@@ -1,0 +1,13 @@
+{
+  "manufacturer": "HONDA",
+  "modelType": "ADVENTURE",
+  "name": "CRF1100L Africa Twin - Adventure Sports",
+  "productionYear": 2023,
+  "engine": "2-Stroke",
+  "displacement": 1084,
+  "cooling": "liquid cooled",
+  "horsepower": 100,
+  "drive": "chain",
+  "fuelCapacity": 18.8,
+  "used": false
+}
