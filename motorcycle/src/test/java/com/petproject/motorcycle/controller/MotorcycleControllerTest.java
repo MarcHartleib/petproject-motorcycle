@@ -1,5 +1,7 @@
 package com.petproject.motorcycle.controller;
 
+import com.petproject.motorcycle.data.Manufacturer;
+import com.petproject.motorcycle.data.ModelType;
 import com.petproject.motorcycle.data.Motorcycle;
 import com.petproject.motorcycle.service.MotorcycleService;
 import org.junit.jupiter.api.Test;
@@ -11,6 +13,7 @@ import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.when;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
@@ -21,9 +24,8 @@ class MotorcycleControllerTest {
     private final String uri = "/motorcycle";
 
     private final String requestBody = """
-            {
-            "Manufacturer": "HONDA",
-            "ModelType": "ADVENTURE",
+            {"manufacturer": "HONDA",
+            "modelType": "ADVENTURE",
             "name": "CRF1100L Africa Twin - Adventure Sports",
             "productionYear": 2023,
             "engine": "2-Stroke",
@@ -32,10 +34,20 @@ class MotorcycleControllerTest {
             "horsepower": 100,
             "drive": "chain",
             "fuelCapacity": 18.8,
-            "isUsed": false
-            }
+            "isUsed": false}
             """;
 
+    private final Motorcycle motorcycle = new Motorcycle(Manufacturer.HONDA,
+            ModelType.ADVENTURE,
+            "CRF1100L Africa Twin - Adventure Sports",
+            2023,
+            "2-Stroke",
+            1084,
+            "liquid cooled",
+            100,
+            "chain",
+            18.8,
+            false);
     @MockBean
     MotorcycleService motorcycleService;
 
@@ -55,23 +67,24 @@ class MotorcycleControllerTest {
 
     @Test
     void postMotorcycle() throws Exception {
+        when(motorcycleService.save(motorcycle)).thenReturn(motorcycle);
         mockMvc.perform(post(uri)
                         .contentType(APPLICATION_JSON)
                         .content(requestBody))
                 .andExpect(status().isOk());
 
-        verify(motorcycleService).save(motorcycleArgumentCaptor.capture());
-
+        verify(motorcycleService).save(motorcycle);
     }
 
     @Test
     void putMotorcycle() throws Exception {
+        when(motorcycleService.update(motorcycle)).thenReturn(motorcycle);
         mockMvc.perform(put(uri)
                         .content(requestBody)
                         .contentType(APPLICATION_JSON))
                 .andExpect(status().isOk());
 
-        verify(motorcycleService).update(motorcycleArgumentCaptor.capture());
+        verify(motorcycleService).update(motorcycle);
     }
 
     @Test

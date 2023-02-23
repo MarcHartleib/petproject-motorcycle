@@ -24,13 +24,13 @@ public class MotorcycleController {
     }
 
     @PostMapping
-    public void postMotorcycle(@RequestBody Motorcycle motorcycle) {
-        motorcycleService.save(motorcycle);
+    public Motorcycle postMotorcycle(@RequestBody Motorcycle motorcycle) {
+        return motorcycleService.save(motorcycle);
     }
 
     @PutMapping()
-    public void putMotorcycle(@RequestBody Motorcycle motorcycle) {
-        motorcycleService.update(motorcycle);
+    public Motorcycle putMotorcycle(@RequestBody Motorcycle motorcycle) {
+        return motorcycleService.update(motorcycle);
     }
 
     @DeleteMapping
@@ -39,7 +39,7 @@ public class MotorcycleController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Motorcycle> getMotorcycleById(@PathVariable("id") Long id) {
+    public Optional<Motorcycle> getMotorcycleById(@PathVariable("id") long id) {
         return motorcycleService.getMotorcycleById(id);
     }
 

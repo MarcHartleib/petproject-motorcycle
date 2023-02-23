@@ -21,19 +21,19 @@ public class MotorcycleService {
         return motorcycleRepository.findAll();
     }
 
-    public void save(Motorcycle motorcycle) {
-        motorcycleRepository.save(motorcycle);
+    public Motorcycle save(Motorcycle motorcycle) {
+        return motorcycleRepository.save(motorcycle);
     }
 
-    public void update(Motorcycle motorcycle) {
-        motorcycleRepository.save(motorcycle);
+    public Motorcycle update(Motorcycle motorcycle) {
+        return motorcycleRepository.save(motorcycle);
     }
 
     public void delete(Motorcycle motorcycle) {
         motorcycleRepository.delete(motorcycle);
     }
 
-    public Optional<Motorcycle> getMotorcycleById(Long id) {
+    public Optional<Motorcycle> getMotorcycleById(long id) {
         return motorcycleRepository.findById(id);
     }
 }
