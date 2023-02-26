@@ -4,6 +4,7 @@ import com.petproject.motorcycle.data.Manufacturer;
 import com.petproject.motorcycle.data.ModelType;
 import com.petproject.motorcycle.data.Motorcycle;
 import com.petproject.motorcycle.motorcycleRepository.MotorcycleRepository;
+import com.petproject.motorcycle.testData.MotorcycleTestdataProvider;
 import org.junit.jupiter.api.Test;
 
 import static org.mockito.Mockito.mock;
@@ -11,7 +12,7 @@ import static org.mockito.Mockito.verify;
 
 class MotorcycleServiceTest {
 
-    private final Motorcycle motorcycle = new Motorcycle(Manufacturer.HONDA,
+    private final Motorcycle motorcycles = new Motorcycle(Manufacturer.HONDA,
             ModelType.ADVENTURE,
             "CRF1100L Africa Twin - Adventure Sports",
             2023,
@@ -22,6 +23,10 @@ class MotorcycleServiceTest {
             "chain",
             18.8,
             false);
+
+    private final MotorcycleTestdataProvider motorcycleTestdataProvider = new MotorcycleTestdataProvider();
+
+    private final Motorcycle motorcycle = motorcycleTestdataProvider.getMotorcycleTestObject();
     MotorcycleRepository motorcycleRepository = mock(MotorcycleRepository.class);
     MotorcycleService motorcycleService = new MotorcycleService(motorcycleRepository);
 
