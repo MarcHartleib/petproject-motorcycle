@@ -22,7 +22,7 @@ export default function App() {
   return (
     <Routes>
       <Route path='/' element={TemplateLanding(LandingPage())}></Route>
-      <Route path='/motorcycles' element={TemplateMotorcycles(MotorcyclesPage())}></Route>
+      <Route path='/motorcycles' element={TemplateMotorcycles(MotorcyclesPage(data))}></Route>
     </Routes>
   );
 }
