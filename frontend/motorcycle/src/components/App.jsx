@@ -19,10 +19,11 @@ export default function App() {
     fetchData();
   }, []);
 
+  console.log(data);
   return (
     <Routes>
       <Route path='/' element={TemplateLanding(LandingPage())}></Route>
-      <Route path='/motorcycles' element={TemplateMotorcycles(MotorcyclesPage(data))}></Route>
+      <Route path='/motorcycles' element={TemplateMotorcycles(MotorcyclesPage())}></Route>
     </Routes>
   );
 }
