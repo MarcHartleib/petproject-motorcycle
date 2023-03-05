@@ -1,7 +1,7 @@
 import LinkButton from "../atoms/LinkButton";
 import NavBar from "../organisms/NavBar";
 
-export default function MotorcyclesPage () {
+export default function MotorcyclesPage ({ data }) {
     return (
         <div>
             <NavBar>
