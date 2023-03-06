@@ -1,22 +1,11 @@
-import { useState, useEffect } from 'react';
 import LinkButton from "../atoms/LinkButton";
 import NavBar from "../organisms/NavBar";
 import Motorcycle from '../atoms/Motorcycle';
 
-export default function MotorcyclesPage () {
-    const [data, setData] = useState(null);
+export default function MotorcyclesPage ( data ) {
+    
 
-    useEffect(() => {
-      const fetchData = async () => {
-      const response = await fetch('/motorcycle');
-      const newData = await response.json();
-      setData(newData);
-      };
-  
-      fetchData();
-    }, []);
-
-    if (data === null) {
+    if (!data) {
         return (
         <div>
             <NavBar>

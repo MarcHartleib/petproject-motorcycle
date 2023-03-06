@@ -1,29 +1,32 @@
 import {Routes, Route} from 'react-router-dom';
-import { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react';
 import LandingPage from './pages/LandingPage';
 import MotorcyclesPage from './pages/MotorcyclesPage';
 import TemplateLanding from './templates/TemplateLanding';
 import TemplateMotorcycles from './templates/TemplateMotorcycles';
 
+async function fetchMotoryclyces() {
+  const response = await fetch('/motorcycle');
+  return await response.json();
+}
+
 export default function App() {
 
   const [data, setData] = useState(null);
 
-  useEffect(() => {
-    const fetchData = async () => {
-    const response = await fetch('/motorcycle');
-    const newData = await response.json();
-    setData(newData);
-    };
+  useEffect(refetchMotorcycles, []);
 
-    fetchData();
-  }, []);
 
-  console.log(data);
+
+  function refetchMotorcycles() {
+      fetchMotoryclyces().then(setData);
+  }
+  
+
   return (
     <Routes>
-      <Route path='/' element={TemplateLanding(LandingPage())}></Route>
-      <Route path='/motorcycles' element={TemplateMotorcycles(MotorcyclesPage())}></Route>
+      <Route path='/' element={TemplateLanding(LandingPage(refetchMotorcycles))}></Route>
+      <Route path='/motorcycles' element={TemplateMotorcycles(MotorcyclesPage(data))}></Route>
     </Routes>
   );
 }
