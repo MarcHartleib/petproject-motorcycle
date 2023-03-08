@@ -12,7 +12,7 @@ export default function LandingPage( onClick ) {
         <div>
             <Landing>
                 <LinkButton name={'Motorcycles'} pageLink={'/motorcycles'} onClick={onClick}/>
-                <LinkButton name={'Add Motorcycle'}/>
+                <LinkButton name={'Add Motorcycle'} pageLink={'/add-motorcycle'}/>
                 <LinkButton name={'Logout'}/>
             </Landing>
         </div>

@@ -4,6 +4,8 @@ import LandingPage from './pages/LandingPage';
 import MotorcyclesPage from './pages/MotorcyclesPage';
 import TemplateLanding from './templates/TemplateLanding';
 import TemplateMotorcycles from './templates/TemplateMotorcycles';
+import TemplateAddMotorcycle from './templates/TemplateAddMotorcycle';
+import AddMotorcyclePage from './pages/AddMotorcyclePage';
 
 async function fetchMotoryclyces() {
   const response = await fetch('/motorcycle');
@@ -16,8 +18,6 @@ export default function App() {
 
   useEffect(refetchMotorcycles, []);
 
-
-
   function refetchMotorcycles() {
       fetchMotoryclyces().then(setData);
   }
@@ -27,6 +27,7 @@ export default function App() {
     <Routes>
       <Route path='/' element={TemplateLanding(LandingPage(refetchMotorcycles))}></Route>
       <Route path='/motorcycles' element={TemplateMotorcycles(MotorcyclesPage(data))}></Route>
+      <Route path='/add-motorcycle' element={TemplateAddMotorcycle(AddMotorcyclePage())}></Route>
     </Routes>
   );
 }
