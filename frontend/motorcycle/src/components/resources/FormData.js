@@ -11,15 +11,6 @@ export const FormData = {
     title: "Drivetrain",
     list: ["Belt", "Chain", "Drivetrain"],
   },
-  inputs: [
-    "Name",
-    "Production Year",
-    "Engine",
-    "Displacement",
-    "Cooling",
-    "Horsepower",
-    "Fuel Capacity",
-  ],
   checkbox: {
     name: "Used",
     checked: false,
