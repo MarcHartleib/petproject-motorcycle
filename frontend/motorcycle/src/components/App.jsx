@@ -6,6 +6,7 @@ import TemplateLanding from "./templates/TemplateLanding";
 import TemplateMotorcycles from "./templates/TemplateMotorcycles";
 import TemplateAddMotorcycle from "./templates/TemplateAddMotorcycle";
 import AddMotorcyclePage from "./pages/AddMotorcyclePage";
+import EditMotorcyclePage from "./pages/EditMotorcyclePage";
 
 async function fetchMotoryclyces() {
   const response = await fetch("/motorcycle");
@@ -34,6 +35,10 @@ export default function App() {
       <Route
         path="/add-motorcycle"
         element={TemplateAddMotorcycle(AddMotorcyclePage())}
+      ></Route>
+      <Route
+        path="/edit-motorcycle/:id"
+        element={<EditMotorcyclePage />}
       ></Route>
     </Routes>
   );

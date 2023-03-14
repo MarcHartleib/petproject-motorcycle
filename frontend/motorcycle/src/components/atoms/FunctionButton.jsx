@@ -1,7 +1,7 @@
-export default function DeleteButton({ onClick }) {
+export default function FunctionButton({ onClick, name }) {
   return (
     <button type="button" onClick={onClick}>
-      Delete
+      {name}
     </button>
   );
 }

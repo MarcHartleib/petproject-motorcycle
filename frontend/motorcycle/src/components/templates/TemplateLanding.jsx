@@ -1,7 +1,3 @@
 export default function TemplateLanding(pageContent) {
-    return (
-        <div>
-            {pageContent}
-        </div>
-    )
+  return <div>{pageContent}</div>;
 }

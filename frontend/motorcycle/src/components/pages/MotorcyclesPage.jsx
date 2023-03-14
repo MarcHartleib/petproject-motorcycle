@@ -1,7 +1,7 @@
 import LinkButton from "../atoms/LinkButton";
 import NavBar from "../organisms/NavBar";
 import Motorcycle from "../atoms/Motorcycle";
-import DeleteButton from "../atoms/DeleteButton";
+import FunctionButton from "../atoms/FunctionButton";
 
 export default function MotorcyclesPage(data) {
   function handleDelete(mocy) {
@@ -36,7 +36,14 @@ export default function MotorcyclesPage(data) {
         {data.map((mocy) => (
           <div key={mocy.id}>
             <Motorcycle mocy={mocy} />
-            <DeleteButton onClick={() => handleDelete(mocy)} />
+            <FunctionButton
+              onClick={() => handleDelete(mocy)}
+              name={"Delete"}
+            />
+            <LinkButton
+              name={"Edit"}
+              pageLink={`/edit-motorcycle/${mocy.id}`}
+            />
           </div>
         ))}
       </div>
