@@ -1,7 +1,7 @@
 package com.petproject.motorcycle.service;
 
 import com.petproject.motorcycle.data.Motorcycle;
-import com.petproject.motorcycle.motorcycleRepository.MotorcycleRepository;
+import com.petproject.motorcycle.repository.MotorcycleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

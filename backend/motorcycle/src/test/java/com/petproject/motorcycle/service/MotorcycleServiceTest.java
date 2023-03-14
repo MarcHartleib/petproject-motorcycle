@@ -3,7 +3,7 @@ package com.petproject.motorcycle.service;
 import com.petproject.motorcycle.data.Manufacturer;
 import com.petproject.motorcycle.data.ModelType;
 import com.petproject.motorcycle.data.Motorcycle;
-import com.petproject.motorcycle.motorcycleRepository.MotorcycleRepository;
+import com.petproject.motorcycle.repository.MotorcycleRepository;
 import com.petproject.motorcycle.testData.MotorcycleTestdataProvider;
 import org.junit.jupiter.api.Test;
 

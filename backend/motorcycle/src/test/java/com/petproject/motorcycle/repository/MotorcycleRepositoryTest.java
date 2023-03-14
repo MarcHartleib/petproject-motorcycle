@@ -1,4 +1,4 @@
-package com.petproject.motorcycle.motorcycleRepository;
+package com.petproject.motorcycle.repository;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.petproject.motorcycle.data.Manufacturer;

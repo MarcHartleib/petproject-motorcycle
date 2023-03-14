@@ -1,4 +1,4 @@
-package com.petproject.motorcycle.motorcycleRepository;
+package com.petproject.motorcycle.repository;
 
 import com.petproject.motorcycle.data.Manufacturer;
 import com.petproject.motorcycle.data.ModelType;
