@@ -15,6 +15,10 @@ public class UserService {
         this.userRepository = userRepository;
     }
 
+    public void addUser(User user) {
+        userRepository.save(user);
+    }
+
     public Optional<User> getUserByUsername(String username) {
         return userRepository.findUserByUsername(username);
     }
