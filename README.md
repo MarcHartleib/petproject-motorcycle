@@ -23,6 +23,6 @@ Run petproject-motorcycle/backend with an IDE of your choice.
 To run the frontend: 
 
 ```shell
-$ cd petproject-motorcycle/fronend
+$ cd petproject-motorcycle/frontend
 $ npm start
 ```
