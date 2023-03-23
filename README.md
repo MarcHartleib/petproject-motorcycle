@@ -21,6 +21,7 @@ $ cd ~/petproject-motorcycle/frontend
 $ npm install
 ```
 
+Run petproject-motorcycle/backend with an IDE of your choice.
 
 To run the frontend: 
 
